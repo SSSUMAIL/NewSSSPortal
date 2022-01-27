@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3>{% trans 'New Post has been added in your subscribed category' %}!</h3>
+<p>{% trans 'Read it now' %}: <a href="http://127.0.0.1:8000/{{ post_id }}">http://127.0.0.1:8000/news/{{ post_id }}</a></p>
+</body>
+</html>

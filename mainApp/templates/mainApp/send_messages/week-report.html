@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3>{% trans 'New Posts for last week:' %}:</h3>
+{% for post in post_list %}
+<p>{{ post.head }}: <a href="http://127.0.0.1:8000/news/{{ post.pk }}">Read this post...</a></p>
+{% endfor %}
+</body>
+</html>

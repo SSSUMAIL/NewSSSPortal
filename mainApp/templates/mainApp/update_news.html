@@ -1,0 +1,10 @@
+{% extends 'mainApp/default.html' %}
+{% block title %}Update News{% endblock %}
+{% block content %}
+    <h3>Add news:</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update news">
+    </form>
+{% endblock %}

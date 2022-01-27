@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3>{% trans 'weekly news report' %}:</h3>
+{% for post in latest_posts %}
+<p>{{ post.title }} -  <a href="http://127.0.0.1:8000/news/{{ post.pk }}">read now...</a></p>
+{% endfor %}
+</body>
+</html>

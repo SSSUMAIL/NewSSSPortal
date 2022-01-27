@@ -1,0 +1,24 @@
+{% extends 'mainApp/default.html' %}
+{% load censor_filter %}
+{% block title %}{{news_detail.title}}{% endblock %}
+
+{% block content %}
+    <h1>{{news_detail.title|censor}}</h1>
+    <small>{{news_detail.dateCreation|date:'M d Y H:m'  }}</small>
+<p>You can sudscribe on news from category:</p>
+    {% for category in news_detail.postCategory.all %}
+               <a  class="btn btn-success" href="{% url 'subscribe_category' category.id %}"><small> #{{ category }}</small></a>
+            {% endfor %}
+    <hr>
+    <p>{{news_detail.text|censor}}</p>
+    <hr>
+    <p>by {{news_detail.author.author.username}}</p>
+
+        {% if news_detail.author.author.username == user.username %}
+
+            {% csrf_token %}
+                <a  class="btn btn-success" href="{% url 'post_update' news_detail.id %}"><small>Edit</small></a>
+                <a  class="btn btn-danger" href="{% url 'post_delete' news_detail.id %}"><small> Delete </small></a>
+        {% endif %}
+
+{% endblock %}

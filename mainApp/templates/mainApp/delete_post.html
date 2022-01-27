@@ -1,0 +1,14 @@
+{% extends 'mainApp/default.html' %}
+{% load censor_filter %}
+{% block title %}Delete - {{article.title|censor}}{% endblock %}
+
+{% block content %}
+    <h1>DELETE POST {{object.title|censor}}</h1>
+    <small>CREATED at {{object.dateCreation|date:'M d Y H:m'  }}</small>
+    <hr>
+
+    <p>ARE YOU SURE YOU WANT TO DELETE YOUR POST?</p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Delete"></form>
+{% endblock %}
